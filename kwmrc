@@ -1,0 +1,49 @@
+kwmc config padding 20 20 20 20
+
+kwmc config gap 15 15
+
+kwmc config tiling bsp
+
+kwmc config float-non-resizable on
+
+kwmc config lock-to-container on
+
+kwmc config focus-follows-mouse on
+
+kwmc config standby-on-float on
+
+kwmc config center-on-float on
+
+kwmc config mouse-follows-focus on
+
+kwmc config mouse-drag on
+
+kwmc config mouse-drag mod shift+ctrl
+
+kwmc config cycle-focus on
+
+kwmc config split-ratio 0.62
+
+kwmc config spawn right
+
+kwmc rule owner="iTerm2" properties={role="AXDialog"}
+kwmc rule owner="Kindle" properties={role="AXDialog"}
+kwmc rule owner="Photoshop" properties={float="true"}
+kwmc rule owner="Dictionary" properties={float="true"}
+kwmc rule owner="AppStore" properties={float="true"}
+kwmc rule owner="WeChat" properties={float="true"}
+kwmc rule owner="NeteaseMusic" properties={float="true"}
+kwmc rule owner="Thunder" properties={float="true"}
+kwmc rule owner="钉钉" properties={float="true"}
+kwmc rule owner="QQ" properties={float="true"}
+kwmc rule owner="iMuscle 2" properties={float="true"}
+kwmc rule owner="Finder" properties={float="true"}
+kwmc rule owner="Messages" properties={float="true"}
+kwmc rule owner="Dash" properties={float="true"}
+kwmc rule owner="VLC" properties={float="true"}
+
+kwmc config border marked on
+kwmc config border marked size 1
+kwmc config border marked color 0xFFCC5577
+kwmc config border marked radius 2
+

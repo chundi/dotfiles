@@ -1,0 +1,18 @@
+khd kwm on
+
+khd mode prefix prefix on
+khd mode prefix timeout 1.0
+khd mode prefix restore default
+
+ctrl - s        :   khd -e "mode activate prefix"
+
+prefix - h               :    kwmc window -c expand 0.05 west
+prefix - j               :    kwmc window -c expand 0.05 south
+prefix - k               :    kwmc window -c expand 0.05 north
+prefix - l               :    kwmc window -c expand 0.05 east
+
+prefix + shift - h       :    kwmc window -c reduce 0.05 west
+prefix + shift - j       :    kwmc window -c reduce 0.05 south
+prefix + shift - k       :    kwmc window -c reduce 0.05 north
+prefix + shift - l       :    kwmc window -c reduce 0.05 east
+
