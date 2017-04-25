@@ -4,7 +4,7 @@ kwmc config gap 15 15
 
 kwmc config tiling bsp
 
-kwmc config float-non-resizable on
+kwmc config float-non-resizable off
 
 kwmc config lock-to-container on
 

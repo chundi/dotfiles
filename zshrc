@@ -108,9 +108,8 @@ alias cls='clear'
 alias subl=\''/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'\'
 alias hexo='~/node_modules/hexo-cli/bin/hexo'
 
-alias adi='ssh adi@127.0.0.1 -p 2222'
-alias ub='ssh adi@127.0.0.1 -p 2223'
-alias tunnel='ssh -CfNg -D 127.0.0.1:8017'
+alias adi='ssh adi@127.0.0.1 -p 2223'
+#alias tunnel='ssh -CfNg -D 127.0.0.1:8017'
 alias python3='~/env3/bin/python'
 alias ipython3='~/env3/bin/ipython3'
 alias pip3='~/env3/bin/pip'
@@ -149,3 +148,4 @@ alias -s txt=subl
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+eval $(/usr/libexec/path_helper -s)
