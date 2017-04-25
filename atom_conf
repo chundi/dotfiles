@@ -1,0 +1,13 @@
+1. install atom
+2. install atom package sync-settings
+3. open sync-settings settings
+4. input your github personal access token
+5. menu -> packages -> command palette -> toggle
+6. input "sync-setting:fork"
+7. in the following input field, enter "c0ba91a89d0e4cd7144cf4154ac4d6ea"
+8. menu -> packages -> synchronize settings -> restore
+9. restart atom
+10. menu -> atom -> preferences -> themes
+11. ui theme -> Dark Flat
+12. Syntax Theme -> Gruvbox Plus
+13. done
