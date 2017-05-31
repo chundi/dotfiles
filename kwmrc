@@ -1,10 +1,10 @@
-kwmc config padding 20 20 20 20
+kwmc config padding 27 40 5 5
 
-kwmc config gap 15 15
+kwmc config gap 5 5
 
 kwmc config tiling bsp
 
-kwmc config float-non-resizable off
+kwmc config float-non-resizable on
 
 kwmc config lock-to-container on
 
@@ -27,7 +27,6 @@ kwmc config split-ratio 0.62
 kwmc config spawn right
 
 kwmc rule owner="iTerm2" properties={role="AXDialog"}
-kwmc rule owner="Kindle" properties={role="AXDialog"}
 kwmc rule owner="Photoshop" properties={float="true"}
 kwmc rule owner="Dictionary" properties={float="true"}
 kwmc rule owner="AppStore" properties={float="true"}
@@ -41,6 +40,9 @@ kwmc rule owner="Finder" properties={float="true"}
 kwmc rule owner="Messages" properties={float="true"}
 kwmc rule owner="Dash" properties={float="true"}
 kwmc rule owner="VLC" properties={float="true"}
+kwmc rule owner="Maipo" properties={float="true"}
+kwmc rule owner="IINA" properties={float="true"}
+kwmc rule owner="Xee³" properties={float="true"}
 
 kwmc config border marked on
 kwmc config border marked size 1

@@ -80,7 +80,6 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export DEFAULT_USER="Adi"
 export VIRTUAL_ENV_DISABLE_PROMPT="true"
 export thrift_stage="beta"
-source ~/env/bin/activate.zsh
 # source ~/.oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
@@ -109,10 +108,11 @@ alias subl=\''/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'\'
 alias hexo='~/node_modules/hexo-cli/bin/hexo'
 
 alias adi='ssh adi@127.0.0.1 -p 2223'
-#alias tunnel='ssh -CfNg -D 127.0.0.1:8017'
-alias python3='~/env3/bin/python'
-alias ipython3='~/env3/bin/ipython3'
-alias pip3='~/env3/bin/pip'
+#alias tunnel='ssh -CfNg -D 127.0.0.1:8017' adi@remote_host
+alias python3='~/.env3/bin/python'
+alias ipython3='~/.env3/bin/ipython3'
+alias pip3='~/.env3/bin/pip'
+alias vl='ssh adi@45.76.75.164'
 alias pipes='pipes.sh -p 5 -r 20000'
 alias -s html=subl
 #alias -s py=vi
@@ -121,6 +121,7 @@ alias -s c=vi
 alias -s cpp=vi
 alias -s log=less
 alias -s txt=subl
+alias c=cd
 #alias npm="npm --registry=https://registry.npm.taobao.org \
 #        --cache=$HOME/.npm/.cache/cnpm \
 #        --disturl=https://npm.taobao.org/dist \
@@ -149,3 +150,4 @@ alias -s txt=subl
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 eval $(/usr/libexec/path_helper -s)
+source ~/.env/bin/activate.zsh
