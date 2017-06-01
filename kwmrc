@@ -43,6 +43,7 @@ kwmc rule owner="VLC" properties={float="true"}
 kwmc rule owner="Maipo" properties={float="true"}
 kwmc rule owner="IINA" properties={float="true"}
 kwmc rule owner="Xee³" properties={float="true"}
+kwmc rule owner="Folx" properties={float="true"}
 
 kwmc config border marked on
 kwmc config border marked size 1
