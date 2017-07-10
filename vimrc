@@ -37,25 +37,33 @@ set fileencodings=ucs-bom,utf-8,gbk,gb2312,gb18030,default,latin1
 set guifont=Monaco:h9
 set tabpagemax=30
 "colorscheme solarized
-colorscheme gruvbox
-hi vertsplit ctermfg=238 ctermbg=235
-hi LineNr ctermfg=237
-hi StatusLine ctermfg=235 ctermbg=245
-hi StatusLineNC ctermfg=235 ctermbg=237
-hi Search ctermbg=58 ctermfg=15
-hi Default ctermfg=1
-hi clear SignColumn
-hi SignColumn ctermbg=235
-hi GitGutterAdd ctermbg=235 ctermfg=245
-hi GitGutterChange ctermbg=235 ctermfg=245
-hi GitGutterDelete ctermbg=235 ctermfg=245
-hi GitGutterChangeDelete ctermbg=235 ctermfg=245
-hi EndOfBuffer ctermfg=237 ctermbg=235
+"colorscheme gruvbox
+"hi vertsplit ctermfg=238 ctermbg=235
+"hi LineNr ctermfg=237
+"hi StatusLine ctermfg=235 ctermbg=245
+"hi StatusLineNC ctermfg=235 ctermbg=237
+"hi Search ctermbg=58 ctermfg=15
+"hi Default ctermfg=1
+"hi clear SignColumn
+"hi SignColumn ctermbg=235
+"hi GitGutterAdd ctermbg=235 ctermfg=245
+"hi GitGutterChange ctermbg=235 ctermfg=245
+"hi GitGutterDelete ctermbg=235 ctermfg=245
+"hi GitGutterChangeDelete ctermbg=235 ctermfg=245
+"hi EndOfBuffer ctermfg=237 ctermbg=235
+hi TabLine ctermfg=None ctermbg=None
+hi TabLineSel ctermfg=None ctermbg=None
+hi clear TabLineFill
+hi clear StatusLine
+hi clear StatusLineNC
+hi clear VertSplit
+
 
 set statusline=%=\ %l\ %P\ %f\ %m
 set fillchars=vert:\ ,stl:\ ,stlnc:\ 
 set laststatus=2
 set noshowmode
+hi statusline ctermbg=None
 
 " ======================= 切换tab ========================
 nmap gp gT
@@ -93,6 +101,9 @@ map <silent><F8> :TlistToggle<cr>"
 let Tlist_Show_One_File = 1     " 不同时显示多个文件的tag，只显示当前文件的
 let Tlist_Exit_OnlyWindow = 1   " 最后只剩下taglist窗口时，直接退出vim
 let Tlist_Use_Right_Window = 1  " 右侧窗口显示taglist
+let Tlist_Enable_Fold_Column = 0
+hi clear MyTagListFileName
+hi clear MyTagListTagScope
 
 " ======================= gitgutter ========================
 let g:gitgutter_sign_column_always = 1
