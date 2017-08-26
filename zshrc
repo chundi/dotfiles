@@ -58,7 +58,17 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+if command -v java >/dev/null 2>&1; then
+    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+fi
+
+if command -v go >/dev/null 2>&1; then
+    GOVERSION=$(go version | awk '{print $3}' | cut -c 3-)
+    export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION/libexec
+    export GOPATH="/Users/chundi/workspace/go"
+fi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -107,7 +117,8 @@ alias cls='clear'
 alias subl=\''/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'\'
 alias hexo='~/node_modules/hexo-cli/bin/hexo'
 
-alias adi='ssh adi@127.0.0.1 -p 2223'
+#alias adi='ssh adi@127.0.0.1 -p 2223'
+alias adi='ssh adi@192.168.1.113'
 #alias tunnel='ssh -CfNg -D 127.0.0.1:8017' adi@remote_host
 alias python3='~/.env3/bin/python'
 alias ipython3='~/.env3/bin/ipython3'
