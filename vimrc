@@ -14,6 +14,8 @@ Plugin 'pernatiy/taglist.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plugin 'ervandew/supertab'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -37,33 +39,35 @@ set fileencodings=ucs-bom,utf-8,gbk,gb2312,gb18030,default,latin1
 set guifont=Monaco:h9
 set tabpagemax=30
 "colorscheme solarized
-"colorscheme gruvbox
-"hi vertsplit ctermfg=238 ctermbg=235
-"hi LineNr ctermfg=237
-"hi StatusLine ctermfg=235 ctermbg=245
-"hi StatusLineNC ctermfg=235 ctermbg=237
-"hi Search ctermbg=58 ctermfg=15
-"hi Default ctermfg=1
-"hi clear SignColumn
-"hi SignColumn ctermbg=235
-"hi GitGutterAdd ctermbg=235 ctermfg=245
-"hi GitGutterChange ctermbg=235 ctermfg=245
-"hi GitGutterDelete ctermbg=235 ctermfg=245
-"hi GitGutterChangeDelete ctermbg=235 ctermfg=245
-"hi EndOfBuffer ctermfg=237 ctermbg=235
-hi TabLine ctermfg=None ctermbg=None
-hi TabLineSel ctermfg=None ctermbg=None
-hi clear TabLineFill
-hi clear StatusLine
-hi clear StatusLineNC
-hi clear VertSplit
+" ====================== grupbox =======================
+colorscheme gruvbox
+hi vertsplit ctermfg=238 ctermbg=235
+hi LineNr ctermfg=237
+hi StatusLine ctermfg=235 ctermbg=245
+hi StatusLineNC ctermfg=235 ctermbg=237
+hi Search ctermbg=58 ctermfg=15
+hi Default ctermfg=1
+hi clear SignColumn
+hi SignColumn ctermbg=235
+hi GitGutterAdd ctermbg=235 ctermfg=245
+hi GitGutterChange ctermbg=235 ctermfg=245
+hi GitGutterDelete ctermbg=235 ctermfg=245
+hi GitGutterChangeDelete ctermbg=235 ctermfg=245
+hi EndOfBuffer ctermfg=237 ctermbg=235
+" ====================== set transparent lines =========
+"hi TabLine ctermfg=None ctermbg=None
+"hi TabLineSel ctermfg=None ctermbg=None
+"hi clear TabLineFill
+"hi clear StatusLine
+"hi clear StatusLineNC
+"hi clear VertSplit
 
-
+" ====================== status bar =====================
 set statusline=%=\ %l\ %P\ %f\ %m
 set fillchars=vert:\ ,stl:\ ,stlnc:\ 
 set laststatus=2
-set noshowmode
-hi statusline ctermbg=None
+"set noshowmode
+"hi statusline ctermbg=None
 
 " ======================= 切换tab ========================
 nmap gp gT
@@ -106,6 +110,9 @@ hi clear MyTagListFileName
 hi clear MyTagListTagScope
 
 " ======================= gitgutter ========================
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 set updatetime=250
+
+" ======================= supertab ========================
+let g:SuperTabDefaultCompletionType = 'context'
 
