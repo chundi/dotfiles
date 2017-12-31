@@ -1,4 +1,4 @@
-kwmc config padding 27 40 5 5
+kwmc config padding 0 20 0 0
 
 kwmc config gap 5 5
 
@@ -12,7 +12,7 @@ kwmc config focus-follows-mouse on
 
 kwmc config standby-on-float on
 
-kwmc config center-on-float on
+kwmc config center-on-float off
 
 kwmc config mouse-follows-focus on
 
@@ -29,13 +29,11 @@ kwmc config spawn right
 kwmc rule owner="iTerm2" properties={role="AXDialog"}
 kwmc rule owner="Photoshop" properties={float="true"}
 kwmc rule owner="Dictionary" properties={float="true"}
-kwmc rule owner="AppStore" properties={float="true"}
 kwmc rule owner="WeChat" properties={float="true"}
 kwmc rule owner="NeteaseMusic" properties={float="true"}
 kwmc rule owner="Thunder" properties={float="true"}
 kwmc rule owner="钉钉" properties={float="true"}
 kwmc rule owner="QQ" properties={float="true"}
-kwmc rule owner="iMuscle 2" properties={float="true"}
 kwmc rule owner="Finder" properties={float="true"}
 kwmc rule owner="Messages" properties={float="true"}
 kwmc rule owner="Dash" properties={float="true"}
@@ -43,7 +41,10 @@ kwmc rule owner="VLC" properties={float="true"}
 kwmc rule owner="Maipo" properties={float="true"}
 kwmc rule owner="IINA" properties={float="true"}
 kwmc rule owner="Xee³" properties={float="true"}
-kwmc rule owner="Folx" properties={float="true"}
+kwmc rule owner="BetterZip" properties={float="true"}
+kwmc rule owner="iBooks" properties={float="true"}
+kwmc rule owner="Telegram Desktop" properties={float="true"}
+kwmc rule owner="Avast Security" properties={float="true"}
 
 kwmc config border marked on
 kwmc config border marked size 1
