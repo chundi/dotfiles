@@ -6,8 +6,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pernatiy/taglist.vim'
@@ -16,6 +16,9 @@ Plugin 'morhetz/gruvbox'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'ervandew/supertab'
+Plugin 'Yggdroot/LeaderF'
+Plugin 'w0rp/ale'
+Plugin 'davidhalter/jedi-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -67,31 +70,33 @@ set statusline=%=\ %l\ %P\ %f\ %m
 set fillchars=vert:\ ,stl:\ ,stlnc:\ 
 set laststatus=2
 "set noshowmode
-"hi statusline ctermbg=None
+hi statusline ctermbg=None
 
 " ======================= 切换tab ========================
 nmap gp gT
 nmap gn gt
 
 " ======================= air-line =======================
-"let g:airline#extensions#tabline#enabled = 1
-""let g:airline_theme='badwolf'
-"let g:airline_theme='gruvbox'
-"let g:airline_powerline_fonts = 1
-"let g:airline_mode_map = {
-"      \ '__' : '-',
-"      \ 'n'  : 'N',
-"      \ 'i'  : 'I',
-"      \ 'R'  : 'R',
-"      \ 'c'  : 'C',
-"      \ 'v'  : 'V',
-"      \ 'V'  : 'V',
-"      \ '^V' : 'V',
-"      \ 's'  : 'S',
-"      \ 'S'  : 'S',
-"      \ '^S' : 'S',
-"      \ }
-"set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#virtualenv#enabled = 1
+let g:airline_theme='base16'
+let g:airline_powerline_fonts = 1
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '^V' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '^S' : 'S',
+      \ }
+set laststatus=2
 
 " ======================= nerdtree =======================
 map <silent><F7> :NERDTreeToggle<cr>"
@@ -116,3 +121,31 @@ set updatetime=250
 " ======================= supertab ========================
 let g:SuperTabDefaultCompletionType = 'context'
 
+" ========================== ale ==========================
+"let g:syntastic_python_pylint_args='--disable=C0111,R0903,C0301'
+"let g:ale_open_list = 1
+let g:ale_fix_on_save = 1
+let g:ale_set_highlights = 1
+let g:ale_sign_error = 'XX'
+let g:ale_sign_warning = '!!'
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_echo_msg_error_str = 'Error'
+let g:ale_echo_msg_warning_str = 'Warning'
+let g:ale_echo_msg_format = '[%linter%] [%code%] %s [%severity%]'
+let g:ale_python_pylint_options = '--disable=C0111,E1103,R0903,R0913'
+"hi ALEError cterm=bold ctermbg=202
+hi ALEErrorLine cterm=bold,underline
+hi ALEErrorSign cterm=bold ctermbg=235 ctermfg=202
+hi ALEWarningLine cterm=bold
+hi ALEWarningSign cterm=bold ctermbg=235 ctermfg=220
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+let g:ale_linters = {
+    \   'python': ['flake8', 'pylint'],
+    \ }
+
+" ======================= LeaderF =======================
+command FF LeaderfFile
+
+" ======================= jedi ==========================
+let g:jedi#use_tabs_not_buffers = 1 

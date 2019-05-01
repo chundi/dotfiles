@@ -6,15 +6,15 @@ kwmc config tiling bsp
 
 kwmc config float-non-resizable on
 
-kwmc config lock-to-container on
+kwmc config lock-to-container off
 
-kwmc config focus-follows-mouse on
+kwmc config focus-follows-mouse off
 
 kwmc config standby-on-float on
 
 kwmc config center-on-float off
 
-kwmc config mouse-follows-focus on
+kwmc config mouse-follows-focus off
 
 kwmc config mouse-drag on
 
@@ -27,14 +27,21 @@ kwmc config split-ratio 0.62
 kwmc config spawn right
 
 kwmc rule owner="iTerm2" properties={role="AXDialog"}
+kwmc rule owner="Kindle" properties={role="AXDialog"}
 kwmc rule owner="Photoshop" properties={float="true"}
 kwmc rule owner="Dictionary" properties={float="true"}
 kwmc rule owner="WeChat" properties={float="true"}
+kwmc rule owner="微信" properties={float="true"}
 kwmc rule owner="NeteaseMusic" properties={float="true"}
 kwmc rule owner="Thunder" properties={float="true"}
+kwmc rule owner="迅雷" properties={float="true"}
 kwmc rule owner="钉钉" properties={float="true"}
+kwmc rule owner="DingTalk" properties={float="true"}
 kwmc rule owner="QQ" properties={float="true"}
 kwmc rule owner="Finder" properties={float="true"}
+kwmc rule owner="访达" properties={float="true"}
+kwmc rule owner="QQ音乐" properties={float="true"}
+kwmc rule owner="Permute" properties={float="true"}
 kwmc rule owner="Messages" properties={float="true"}
 kwmc rule owner="Dash" properties={float="true"}
 kwmc rule owner="VLC" properties={float="true"}
@@ -42,9 +49,14 @@ kwmc rule owner="Maipo" properties={float="true"}
 kwmc rule owner="IINA" properties={float="true"}
 kwmc rule owner="Xee³" properties={float="true"}
 kwmc rule owner="BetterZip" properties={float="true"}
-kwmc rule owner="iBooks" properties={float="true"}
+kwmc rule owner="Books" properties={float="true"}
 kwmc rule owner="Telegram Desktop" properties={float="true"}
 kwmc rule owner="Avast Security" properties={float="true"}
+kwmc rule owner="Parallels Desktop" properties={float="true"}
+kwmc rule owner="Trello" properties={float="true"}
+kwmc rule owner="Aria2GUI" properties={float="true"}
+kwmc rule owner="115播放器" properties={float="true"}
+kwmc rule owner="百度Hi" properties={float="true"}
 
 kwmc config border marked on
 kwmc config border marked size 1

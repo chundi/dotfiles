@@ -5,10 +5,10 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 # ZSH_THEME="zdj"
 # ZSH_THEME="agnoster"
-# ZSH_THEME="sorin"
+ZSH_THEME="sorin"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -51,22 +51,19 @@ export UPDATE_ZSH_DAYS=7
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew autojump osx themes virtualenv)
+plugins=(vi-mode git brew autojump osx themes virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
-if command -v java >/dev/null 2>&1; then
-    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-fi
-
+echo "Checking Golang Environment"
 if command -v go >/dev/null 2>&1; then
     GOVERSION=$(go version | awk '{print $3}' | cut -c 3-)
     export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION/libexec
-    export GOPATH="/Users/chundi/workspace/go"
+    export GOPATH=/Users/chundi/workspace/go
+    export GOBIN=$GOPATH/bin
 fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -87,12 +84,15 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# source ~/.oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh
+echo "Loading Autojump"
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+
+echo "Loading Env Variables"
 export DEFAULT_USER="Adi"
 export VIRTUAL_ENV_DISABLE_PROMPT="true"
 export thrift_stage="beta"
-# source ~/.oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
 alias vi='vim'
 alias iv='vim'
 alias st='git status'
@@ -113,16 +113,23 @@ alias ls='ls -G'
 alias ll='ls -l -G'
 alias la='ls -al -G'
 alias grep='ggrep'
+alias sed='gsed'
 alias cls='clear'
 alias subl=\''/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'\'
-alias hexo='~/node_modules/hexo-cli/bin/hexo'
+#alias hexo='~/node_modules/hexo-cli/bin/hexo'
+alias gotag='gotags -tag-relative=true -R=true -sort=true -f="tags" -fields=+l .'
+alias passnew='date +%s | shasum -a 256 | base64 | head -c 64 ; echo'
+alias newpass='openssl rand -base64'
+alias ptag='ctags -R --languages=Python --python-kinds=-i'
 
-#alias adi='ssh adi@127.0.0.1 -p 2223'
-alias adi='ssh adi@192.168.1.113'
-#alias tunnel='ssh -CfNg -D 127.0.0.1:8017' adi@remote_host
-alias python3='~/.env3/bin/python'
-alias ipython3='~/.env3/bin/ipython3'
-alias pip3='~/.env3/bin/pip'
+alias tunnel='ssh -CfNg -D 127.0.0.1:8017 adi@45.76.75.164'
+alias adi='ssh adi@192.168.10.104'
+#alias ali='ssh songchundi@47.93.235.243'
+alias ali='ssh web@47.98.115.175'
+#alias python3='~/.env3/bin/python'
+#alias ipython3='~/.env3/bin/ipython3'
+#alias pip3='~/.env3/bin/pip'
+#alias orange='~/.env3/bin/orange-canvas'
 alias vl='ssh adi@45.76.75.164'
 alias pipes='pipes.sh -p 5 -r 20000'
 alias -s html=subl
@@ -133,10 +140,13 @@ alias -s cpp=vi
 alias -s log=less
 alias -s txt=subl
 alias c=cd
-#alias npm="npm --registry=https://registry.npm.taobao.org \
-#        --cache=$HOME/.npm/.cache/cnpm \
-#        --disturl=https://npm.taobao.org/dist \
-#        --userconfig=$HOME/.cnpmrc"
+alias npm="npm --registry=https://registry.npm.taobao.org \
+        --cache=$HOME/.npm/.cache/cnpm \
+        --disturl=https://npm.taobao.org/dist \
+        --userconfig=$HOME/.cnpmrc"
+alias online='ssh qudeco@101.37.145.57'
+export dev='47.94.0.240'
+export online='101.37.145.57'
 
 #function powerline_precmd() {
 #    PS1="$(~/bin/powerline-shell/powerline-shell.py $? --shell zsh 2> /dev/null)"
@@ -160,5 +170,37 @@ alias c=cd
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-eval $(/usr/libexec/path_helper -s)
-source ~/.env/bin/activate.zsh
+#eval $(/usr/libexec/path_helper -s)
+export PATH="/usr/local/bin:/usr/local/sbin:/Users/chundi/.bin:$PATH:$GOBIN"
+export PATH="/usr/local/opt/qt/bin:$PATH"
+export PATH="/usr/local/Cellar/pyqt/5.9.1:$PATH"
+export PATH="~/.pyenv/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+export PATH="$HOME/.cellar/hbase/bin:$PATH"
+
+echo "Checking Java Environment"
+if command -v java >/dev/null 2>&1; then
+    export JAVA_HOME=`/usr/libexec/java_home`
+    export PATH="$JAVA_HOME/bin:$PATH"
+fi
+
+echo "Loading Pyenv"
+
+eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+#source ~/.env3/bin/activate
+alias pyenvinstall='CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install'
+eval "$(pyenv virtualenv-init -)"
+
+export DB_HOST='127.0.0.1'
+export DB_PORT='3306'
+export DB_USER='dev'
+export DB_PASSWD='a'
+export DB_NAME='qudeco'
+export APP_DEBUG='true'
+export APP_ENV='dev'
+export WX_OFFICIAL_ID='wxb1b14aeb4709e05c'
+export WX_OFFICIAL_SECRET='1aeaaa11c6e4ff10d29bdd21cab7342e'
+export UPLOAD_PREFIX='http://47.94.0.240/'
+
+echo "🍺"
