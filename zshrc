@@ -66,6 +66,12 @@ if command -v go >/dev/null 2>&1; then
     export GOBIN=$GOPATH/bin
 fi
 
+echo "Checking Java Environment"
+if command -v java >/dev/null 2>&1; then
+    export JAVA_HOME=`/usr/libexec/java_home`
+    export PATH="$JAVA_HOME/bin:$PATH"
+fi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -86,6 +92,7 @@ fi
 
 # source ~/.oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh
 echo "Loading Autojump"
+source ~/.oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 
@@ -93,6 +100,25 @@ echo "Loading Env Variables"
 export DEFAULT_USER="Adi"
 export VIRTUAL_ENV_DISABLE_PROMPT="true"
 export thrift_stage="beta"
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+export LDFLAGS="-L/usr/local/opt/readline/lib"
+export CPPFLAGS="-I/usr/local/opt/readline/include"
+export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig"
+export LDFLAGS="-L/usr/local/opt/zlib/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include"
+export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+# export PYENV_ROOT="$HOME/.pyenv"
+ # export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/Users/chundi/.bin:$PATH:$GOBIN"
+export PATH="/usr/local/opt/qt/bin:$PATH"
+export PATH="/usr/local/Cellar/pyqt/5.9.1:$PATH"
+export PATH="~/.pyenv/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+export PATH="$HOME/.cellar/hbase/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
 alias vi='vim'
 alias iv='vim'
 alias st='git status'
@@ -171,18 +197,6 @@ export online='101.37.145.57'
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 #eval $(/usr/libexec/path_helper -s)
-export PATH="/usr/local/bin:/usr/local/sbin:/Users/chundi/.bin:$PATH:$GOBIN"
-export PATH="/usr/local/opt/qt/bin:$PATH"
-export PATH="/usr/local/Cellar/pyqt/5.9.1:$PATH"
-export PATH="~/.pyenv/bin:$PATH"
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-export PATH="$HOME/.cellar/hbase/bin:$PATH"
-
-echo "Checking Java Environment"
-if command -v java >/dev/null 2>&1; then
-    export JAVA_HOME=`/usr/libexec/java_home`
-    export PATH="$JAVA_HOME/bin:$PATH"
-fi
 
 echo "Loading Pyenv"
 
@@ -203,4 +217,5 @@ export WX_OFFICIAL_ID='wxb1b14aeb4709e05c'
 export WX_OFFICIAL_SECRET='1aeaaa11c6e4ff10d29bdd21cab7342e'
 export UPLOAD_PREFIX='http://47.94.0.240/'
 
+eval $(/usr/libexec/path_helper -s)
 echo "🍺"
