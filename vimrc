@@ -1,26 +1,26 @@
 " ====================== vundle ======================
-filetype off
 set nocompatible
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'rust-lang/rust.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'pernatiy/taglist.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'morhetz/gruvbox'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
-Plugin 'ervandew/supertab'
-Plugin 'Yggdroot/LeaderF'
-Plugin 'w0rp/ale'
-Plugin 'davidhalter/jedi-vim'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'rust-lang/rust.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'pernatiy/taglist.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'morhetz/gruvbox'
+Plug 'airblade/vim-gitgutter'
+Plug 'nsf/gocode', {'rtp': 'vim/'}
+Plug 'ervandew/supertab'
+Plug 'Yggdroot/LeaderF'
+Plug 'w0rp/ale'
+Plug 'davidhalter/jedi-vim'
+Plug 'zxqfl/tabnine-vim'
+Plug 'puremourning/vimspector'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 
 " ====================== normal config ===================
@@ -33,41 +33,45 @@ set nu
 set t_Co=256
 set background=dark
 set hlsearch
+set path+=**
+set wildmenu
+set encoding=utf-8
 "set cursorline
 "set cursorcolumn
 set autoindent
 syntax on
 filetype on
 set fileencodings=ucs-bom,utf-8,gbk,gb2312,gb18030,default,latin1
-set guifont=Monaco:h9
+" set guifont=Monaco:h9
 set tabpagemax=30
-"colorscheme solarized
+" colorscheme solarized
 " ====================== grupbox =======================
 colorscheme gruvbox
-hi vertsplit ctermfg=238 ctermbg=235
-hi LineNr ctermfg=237
-hi StatusLine ctermfg=235 ctermbg=245
-hi StatusLineNC ctermfg=235 ctermbg=237
-hi Search ctermbg=58 ctermfg=15
-hi Default ctermfg=1
+" hi vertsplit ctermfg=238 ctermbg=235
+" hi LineNr ctermfg=237
+" hi StatusLine ctermfg=235 ctermbg=245
+" hi StatusLineNC ctermfg=235 ctermbg=237
+" hi Search ctermbg=58 ctermfg=15
+hi Normal ctermbg=None
+hi Default ctermfg=None ctermbg=None
 hi clear SignColumn
-hi SignColumn ctermbg=235
-hi GitGutterAdd ctermbg=235 ctermfg=245
-hi GitGutterChange ctermbg=235 ctermfg=245
-hi GitGutterDelete ctermbg=235 ctermfg=245
-hi GitGutterChangeDelete ctermbg=235 ctermfg=245
-hi EndOfBuffer ctermfg=237 ctermbg=235
+hi SignColumn ctermbg=None
+hi GitGutterAdd ctermbg=None ctermfg=None
+hi GitGutterChange ctermbg=None ctermfg=None
+hi GitGutterDelete ctermbg=None ctermfg=None
+hi GitGutterChangeDelete ctermbg=None ctermfg=None
+hi EndOfBuffer ctermfg=None ctermbg=None
 " ====================== set transparent lines =========
-"hi TabLine ctermfg=None ctermbg=None
-"hi TabLineSel ctermfg=None ctermbg=None
-"hi clear TabLineFill
-"hi clear StatusLine
-"hi clear StatusLineNC
-"hi clear VertSplit
+hi TabLine ctermfg=None ctermbg=None
+hi TabLineSel ctermfg=None ctermbg=None
+hi clear TabLineFill
+hi clear StatusLine
+hi clear StatusLineNC
+hi clear VertSplit
 
 " ====================== status bar =====================
 set statusline=%=\ %l\ %P\ %f\ %m
-set fillchars=vert:\ ,stl:\ ,stlnc:\ 
+set fillchars=vert:\ ,stl:\ ,stlnc:\
 set laststatus=2
 "set noshowmode
 hi statusline ctermbg=None
@@ -148,4 +152,5 @@ let g:ale_linters = {
 command FF LeaderfFile
 
 " ======================= jedi ==========================
-let g:jedi#use_tabs_not_buffers = 1 
+let g:jedi#use_tabs_not_buffers = 1
+
