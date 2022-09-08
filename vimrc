@@ -2,8 +2,6 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'pernatiy/taglist.vim'
@@ -27,7 +25,6 @@ Plug 'puremourning/vimspector'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jayli/vim-easydebugger'
 Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 
 call plug#end()            " required
@@ -41,8 +38,7 @@ filetype plugin indent on    " required
 set expandtab
 set nu
 set t_Co=256
-" set background=dark
-set background=light
+set background=dark
 set hlsearch
 set path+=**
 set wildmenu
